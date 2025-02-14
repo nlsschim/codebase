@@ -1,0 +1,5 @@
+name: codebase
+channels:
+  - conda-forge
+dependancies:
+  - numpy
