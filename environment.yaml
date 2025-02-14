@@ -1,7 +1,7 @@
 name: codebase
 channels:
   - conda-forge
-dependancies:
+dependencies:
   - numpy
   - pandas
   - matplotlib
