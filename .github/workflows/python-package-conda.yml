@@ -33,9 +33,10 @@ jobs:
     - name: Test with pytest
       run: |
         conda install pytest pytest-cov
-        pytest --cov-branch --cov-report=xml
+        pytest --cov-codebase tests/
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v4.0.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+        slug: nlsschim/codebase
 
