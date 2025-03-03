@@ -1,6 +1,6 @@
 # Continuous Integration example for Python
 
-[![Coverage Status](https://coveralls.io/repos/github/dacb/codebase/badge.svg?branch=master)](https://coveralls.io/github/dacb/codebase?branch=master)
+[![codecov](https://codecov.io/gh/nlsschim/codebase/graph/badge.svg?token=YRY3QZJVNA)](https://codecov.io/gh/nlsschim/codebase)
 
 ### To get started
 * Go to https://travis-ci.com/ and sign using your GitHub account.  Click on the _+_ button next to the list of repositories on the left hand side. Select the repo from the list and enable the service by flipping the slider.
