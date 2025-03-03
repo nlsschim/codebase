@@ -1,5 +1,6 @@
 # Continuous Integration example for Python
 
+[![Tests](https://github.com/nlsschim/codebase/actions/workflows/python-package-conda.yml/badge.svg?branch=main)](https://github.com/nlsschim/codebase/actions/workflows/python-package-conda.yml)
 [![codecov](https://codecov.io/gh/nlsschim/codebase/branch/main/graph/badge.svg?token=YRY3QZJVNA)](https://codecov.io/gh/nlsschim/codebase)
 
 ### To get started
