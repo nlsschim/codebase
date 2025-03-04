@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/nlsschim/codebase/branch/main/graph/badge.svg?token=YRY3QZJVNA)](https://codecov.io/gh/nlsschim/codebase)
 
 ### To get started
-* Go to https://travis-ci.com/ and sign using your GitHub account.  Click on the _+_ button next to the list of repositories on the left hand side. Select the repo from the list and enable the service by flipping the slider.
+* Go to https://about.codecov.io/ and sign using your GitHub account. 
 * Create an empty virtual environment
 `conda create -n test_env python=3.5`
   * Activate it and populate it with the minimal tools to run the tests, for this example:
