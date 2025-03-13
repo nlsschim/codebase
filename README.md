@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)
 
 ### To get started
-* Go to https://about.codecov.io/ and sign using your GitHub account. 
+* Go to https://about.codecov.io/ and sign using your GitHub account.
 * Create an empty virtual environment
 `conda create -n test_env python=3.5`
   * Activate it and populate it with the minimal tools to run the tests, for this example:
@@ -27,7 +27,7 @@ python:
     - 3.4
     - 3.5
     - 2.7
-    
+
 # what branches should be evaluated
 branches:
     only:
@@ -111,7 +111,7 @@ branches:
 * Create a `.coveragerc` file that specifies what should be included in the coverage calculations, e.g.
 ```
 [report]
-omit =  
+omit =
     */python?.?/*
     */site-packages/nose/*
     *__init__*

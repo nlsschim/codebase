@@ -2,7 +2,9 @@ name: codebase
 channels:
   - conda-forge
 dependencies:
+  - python=3.12
   - numpy=2.2.3
   - pandas>=2.2.1
   - matplotlib=3.10.1
   - scipy=1.15.1
+  - pytest

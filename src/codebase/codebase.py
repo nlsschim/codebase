@@ -5,7 +5,7 @@ def predict(row, weights):
             implement-perceptron-algorithm-scratch-python/
     """
     activation = weights[0]
-    for i in range(len(row)-1):
+    for i in range(len(row) - 1):
         activation += weights[i + 1] * row[i]
     if activation >= 0.0:
         return 1
