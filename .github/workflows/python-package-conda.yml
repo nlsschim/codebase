@@ -1,16 +1,19 @@
-name: Python Package using Conda
+name: CI
 
-on: [push]
+on: 
+    push:
+        branches:
+            - main
 
 jobs:
-  build_matrix:
+  test:
+    name: ${{ matrix.platform}} (${{matrix.python-version)
+    runs-on: ${{ matrix.os}} 
     strategy:
-      max-parallel: 5
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.11"]
         os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
     defaults:
      run:
        # Adding -l {0} helps ensure conda can be found properly in windows.
@@ -20,26 +23,40 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version}}
-    - name: Add conda to system path
+        
+
+    - name: Setup Miniforge
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        miniforge-version: latest
+        python-version: ${{ matrix.python-version }}
+        environment-file: environment.yaml
+        activate-environment: environment.yaml
+        run-post: false
+
+    - name: Conda Info
       run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-    - name: Install dependencies
+        conda info -a
+        conda list
+        PYVER=`python -c "import sys; print('{:d}.{:d}'.format(sys.version_info.major, sys.version_info.minor))"`
+        if [[ $PYVER != $PYTHON ]]; then
+          exit 1;
+        fi
+
+    - name: Install
       run: |
-        conda env update --file environment.yaml --name base
-        python -m pip install --upgrade pip
-        pip install flake8
-        pip install -e .
+        pip install .
+
     - name: Lint with flake8
       run: |
-        conda install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        
     - name: Test with pytest
       run: |
         conda install pytest pytest-cov
