@@ -31,6 +31,7 @@ jobs:
       run: |
         conda env update --file environment.yaml --name base
         python -m pip install --upgrade pip
+        pip install flake8
         pip install -e .
     - name: Lint with flake8
       run: |
