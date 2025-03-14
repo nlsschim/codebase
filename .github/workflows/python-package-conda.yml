@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.platform }} (${{ matrix.python-version }})
+    name: Run Tests
     runs-on: ${{ matrix.os}} 
     strategy:
       fail-fast: false
@@ -42,9 +42,11 @@ jobs:
         conda info -a
         conda list
         PYVER=`python -c "import sys; print('{:d}.{:d}'.format(sys.version_info.major, sys.version_info.minor))"`
-        if [[ $PYVER != $PYTHON ]]; then
+        if [[ $PYVER != ${{ matrix.python-version }} ]]; then
           exit 1;
         fi
+
+        
 
     - name: Install
       run: |
