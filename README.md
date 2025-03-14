@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/nlsschim/codebase/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/nlsschim/codebase/actions/workflows/python-package-conda.yml)
 [![codecov](https://codecov.io/gh/nlsschim/codebase/branch/main/graph/badge.svg?token=YRY3QZJVNA)](https://codecov.io/gh/nlsschim/codebase)
-![](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)
+![](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%20-green)
 
 ### To get started
 * Go to https://about.codecov.io/ and sign using your GitHub account.
