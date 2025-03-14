@@ -1,6 +1,6 @@
 name: CI
 
-on: 
+on:
     push:
         branches:
             - main
@@ -8,11 +8,11 @@ on:
 jobs:
   test:
     name: Run Tests
-    runs-on: ${{ matrix.os}} 
+    runs-on: ${{ matrix.os}}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
         os: [ubuntu-latest, windows-latest, macos-latest]
     defaults:
      run:
@@ -26,7 +26,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version}}
-        
+
 
     - name: Setup Miniforge
       uses: conda-incubator/setup-miniconda@v3
@@ -46,7 +46,7 @@ jobs:
           exit 1;
         fi
 
-        
+
 
     - name: Install
       run: |
@@ -59,7 +59,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-        
+
     - name: Test with pytest
       run: |
         conda install pytest pytest-cov
