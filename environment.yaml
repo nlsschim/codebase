@@ -4,6 +4,6 @@ channels:
 dependencies:
   - numpy=2.2.3
   - pandas>=2.2.1
-  - matplotlib=3.10.1
-  - scipy=1.15.1
+  - matplotlib>=3.10.1
+  - scipy>==1.8
   - pytest
