@@ -1,4 +1,4 @@
-from new_module import pass_data
+from codebase.new_module import pass_data
 
 
 def use_data(data_point):
